@@ -11,6 +11,9 @@ import '../less/style.less';
 
 import {TopMenu, TreeMenu, MainContent} from './components';
 
+import menus from './menu';
+console.log(menus)
+
 class App extends Component {
     render() {
         return (
@@ -23,7 +26,7 @@ class App extends Component {
                         <TreeMenu />
                     </div>
                     <div className="main-content">
-                        <MainContent/>
+                        <MainContent home={menus[0]}/>
                     </div>
                 </div>
             </div>
