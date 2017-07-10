@@ -3,11 +3,17 @@
  */
 
 import path from 'path';
+import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import ManifestPlugin from 'webpack-manifest-plugin';
+import autoprefixer from 'autoprefixer';
 
 const ENV = process.env.npm_lifecycle_event;
 const isProd = ENV === 'build';
+import theme from './theme';
+console.log(theme)
+const themeJson = JSON.stringify(theme);
 
 module.exports = function() {
 
@@ -21,7 +27,9 @@ module.exports = function() {
         path: path.resolve(__dirname, 'dist'),
         // need [hash] to force load new file not cached file
         // when app not deployed in EikonAppServer
-        filename: '[name].[hash].bundle.js',
+        filename: isProd ? '[name].[chunkhash:8].js' : '[name].bundle.js',
+        // There are also additional JS chunk files if you use code splitting.
+        chunkFilename: isProd ? '[name].[chunkhash:8].chunk.js' : '[name].chunk.js',
         publicPath: ''
     };
 
@@ -38,14 +46,14 @@ module.exports = function() {
 
             // First, run the linter.
             // It's important to do this before Babel processes the JS.
-            {
-                test: /\.(js|jsx)$/,
-                enforce: 'pre',
-                use: 'eslint-loader',
-                include: [
-                    path.resolve(__dirname, "src")
-                ],
-            },
+            // {
+            //     test: /\.(js|jsx)$/,
+            //     enforce: 'pre',
+            //     use: 'eslint-loader',
+            //     include: [
+            //         path.resolve(__dirname, "src")
+            //     ],
+            // },
             {
                 test: /\.(js|jsx)$/,
                 use: 'babel-loader',
@@ -53,21 +61,7 @@ module.exports = function() {
                     path.resolve(__dirname, 'src')
                 ]
             },
-            {
-                test: /\.css$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: 'css-loader'
-                })
-            },
-            // {
-            //     test: /\.less$/,
-            //     loader: ExtractTextPlugin.extract({
-            //         fallback: 'style-loader',
-            //         use: 'css-loader!less-loader?relativeUrls=false'
-            //     })
-            // },
-            // ** ADDING/UPDATING LOADERS **
+
             // The "file" loader handles all assets unless explicitly excluded.
             // The `exclude` list *must* be updated with every change to loader extensions.
             // When adding a new loader, you must add its `test`
@@ -86,8 +80,9 @@ module.exports = function() {
                     /\.gif$/,
                     /\.jpe?g$/,
                     /\.png$/,
+                    /\.less/
                 ],
-                loader: require.resolve('file-loader'),
+                loader: 'file-loader',
                 options: {
                     name: 'assets/[name].[hash:8].[ext]',
                 },
@@ -100,8 +95,26 @@ module.exports = function() {
                 loader: require.resolve('url-loader'),
                 options: {
                     limit: 10000,
-                    name: 'static/media/[name].[hash:8].[ext]',
+                    name: 'assets/[name].[hash:8].[ext]',
                 },
+            },
+            {
+                test: /\.less$/,
+                exclude: path.resolve(__dirname,'node_modules/antd'),
+                loader: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: 'css-loader!less-loader?{"relativeUrls":false}'
+                })
+            },
+            // Modify ant-design theme
+            {
+                test: /\.less$/,
+                include: [path.resolve(__dirname,'node_modules/antd')],
+                loader:ExtractTextPlugin.extract(
+                    'css-loader!' +
+                    // 'postcss-loader!' +
+                    `less-loader?{"modifyVars":${JSON.stringify(theme)}}`
+                )
             },
             {
                 test: /\.css$/,
@@ -135,10 +148,6 @@ module.exports = function() {
                     },
                 ],
             },
-            // {
-            //     test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
-            //     loader: 'file-loader?name=./assets/[name].[ext]'
-            // }
         ]
     };
 
@@ -149,6 +158,34 @@ module.exports = function() {
         }),
         new ExtractTextPlugin('[name].bundle.css')
     ];
+
+    if(isProd){
+        config.plugins.push(
+            new webpack.optimize.UglifyJsPlugin({
+                compress: {
+                    warnings: false,
+                    // Disabled because of an issue with Uglify breaking seemingly valid code:
+                    // https://github.com/facebookincubator/create-react-app/issues/2376
+                    // Pending further investigation:
+                    // https://github.com/mishoo/UglifyJS2/issues/2011
+                    comparisons: false,
+                },
+                output: {
+                    comments: false,
+                    // Turned on because emoji and regex is not minified properly using default
+                    // https://github.com/facebookincubator/create-react-app/issues/2488
+                    ascii_only: true,
+                },
+                sourceMap: true,
+            }),
+            new ManifestPlugin({
+                fileName: 'asset-manifest.json',
+            }),
+            // new ExtractTextPlugin({
+            //     filename: '[name].[contenthash:8].css',
+            // }),
+        )
+    }
 
     config.devServer = {
         port: 3300,
