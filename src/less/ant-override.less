@@ -1,0 +1,45 @@
+@btn-active-bg : #4f4f57;
+@btn-active-color : '';
+@btn-active-border-color : #0a0a0a;
+
+//buttons
+.ant-btn{
+    &:active{
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
+    }
+}
+.ant-btn:not(.ant-btn-primary) {
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+        background-color: @btn-active-bg;
+        border-color: @btn-active-border-color;
+    }
+
+}
+.ant-btn-primary{
+    &:hover{
+        color: #0a0a0a;
+        background-color: #ffa64d;
+    }
+    &:active,
+    &.active{
+        background-color: #ff9933;
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
+    }
+}
+
+
+// autocomplete
+.ant-select-dropdown-menu-item-selected,
+.ant-select-dropdown-menu-item-selected:hover{
+    color: #e2e2e2;
+    background: #3c3c42;
+}
+
+.ant-cascader-menu-item-active:not(.ant-cascader-menu-item-disabled),
+.ant-cascader-menu-item-active:not(.ant-cascader-menu-item-disabled):hover{
+    color: #e2e2e2;
+    background: #3c3c42;
+}

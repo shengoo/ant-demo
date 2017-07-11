@@ -6,6 +6,7 @@ import {DatePicker} from 'antd';
 
 // import '../../libs/EikonWebUI-less/webui/main.less';
 import 'antd/dist/antd.less';
+import '../less/ant-override.less';
 import '../less/style.less';
 
 
@@ -15,11 +16,16 @@ import menus from './menu';
 console.log(menus)
 
 class App extends Component {
+
+    addTab(){
+
+    }
+
     render() {
         return (
             <div className="app-container">
                 <div className="top-menu">
-                    <TopMenu/>
+                    <TopMenu items={menus}/>
                 </div>
                 <div className="main">
                     <div className="tree-menu">

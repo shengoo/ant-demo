@@ -1,7 +1,20 @@
 import React, { Component } from 'react';
 
-import {Home} from './components'
+import {Home,ButtonDemo2,ButtonDemo1,PaginationDemo} from './components'
 
 export default {
-    'home':<Home />,
+    'Home':<Home />,
+    'General':[
+        {
+            'Button':[
+                {
+                    'ButtonDemo1':<ButtonDemo1/>
+                }
+            ]
+        },
+        {
+            'Icon' : <Home/>
+        }
+    ],
+    'Navigation':[{'Pagination':<PaginationDemo/>}]
 };

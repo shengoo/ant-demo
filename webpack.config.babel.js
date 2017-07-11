@@ -110,6 +110,17 @@ module.exports = function() {
             {
                 test: /\.less$/,
                 include: [path.resolve(__dirname,'node_modules/antd')],
+                // use: [{
+                //     loader: "style-loader" // creates style nodes from JS strings
+                // }, {
+                //     loader: "css-loader" // translates CSS into CommonJS
+                // }, {
+                //     loader: `less-loader`,  // compiles Less to CSS
+                //     options: {
+                //         sourceMap: true,
+                //         modifyVars:theme
+                //     }
+                // }]
                 loader:ExtractTextPlugin.extract(
                     'css-loader!' +
                     // 'postcss-loader!' +
