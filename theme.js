@@ -1,12 +1,18 @@
 export default (function () {
     const theme = {
         'primary-color':'#ff9933',
-        'body-background':'#1A1A1C',
+        'body-background':'#1A1A1C',//#0a0a0a
         'component-background':'#4a4a52',
         'heading-color':'#ffffff',
         'text-color':'#c2c2c2',
         'item-active-bg':'#4a4a52',
         'item-hover-bg':'#4f4f57',
+        'error-color':'#f5475b',
+        'warning-color':'#ff9933',
+
+        // 'disabled-bg':'',
+
+        'background-color-base':'#212124',
 
         // border
         'border-color-base':'#0a0a0a',
@@ -23,6 +29,11 @@ export default (function () {
 
         'btn-disable-color':'#c2c2c2',
         'btn-disable-bg':'#3c3c42',
+
+        // input
+        'input-bg':'#000000',
+        'input-border-color':'#4a4a52',
+        'input-hover-border-color':'#666570',
 
         //tab
         'tabs-card-head-background':'#3c3c42'

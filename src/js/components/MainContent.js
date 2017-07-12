@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 
 import {Tabs, Button, DatePicker} from 'antd';
 const TabPane = Tabs.TabPane;
-import {ButtonDemo1,PaginationDemo,FormDemo} from '../components';
+import {ButtonDemo1,PaginationDemo,FormDemo,UploadDemo,DatepickerDemo,CollapseDemo,
+    TableDemo,
+    Feedbacks} from '../components';
 
 class MainContent extends Component {
     constructor(props) {
@@ -12,7 +14,10 @@ class MainContent extends Component {
             {title: 'ButtonDemo', content: <ButtonDemo1/>, key: '1'},
             {title: 'FormDemo', content: <FormDemo/>, key: '2'},
             {title: 'PaginationDemo', content: <PaginationDemo/>, key: '3'},
-            {title: 'DatePicker', content: <DatePicker/>, key: 'DatePicker'},
+            {title: 'DatepickerDemo & Calendar', content: <DatepickerDemo/>, key: 'DatePicker'},
+            {title: 'Collapse & Popover', content: <CollapseDemo/>, key: 'CollapseDemo'},
+            {title: 'TableDemo', content: <TableDemo/>, key: 'TableDemo'},
+            {title: 'Feedbacks', content: <Feedbacks/>, key: 'Feedbacks'},
         ];
         this.state = {
             activeKey: panes[0].key,

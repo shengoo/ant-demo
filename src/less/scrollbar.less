@@ -1,0 +1,65 @@
+//*****Content between :section is used to generate Variables page, do not change!
+
+//:section
+// Greyscale
+
+@white  : #FFFFFF;
+@grey01 : #E2E2E2;
+@grey02 : #C2C2C2;
+@grey03 : #8C8C8C;
+@grey04 : #666570;
+@grey05 : #4A4A52;
+@grey06 : #3C3C42;
+@grey07 : #2E2E33;
+@grey08 : #212124;
+@grey09 : #1A1A1C;
+@grey10 : #151516;
+@grey11 : #0A0A0A;
+@black  : #000000;
+
+// Saturates
+
+@orange : #FF9933;
+@red    : #F5475B;
+@green  : #39C46E;
+@blue   : #46A0F0;
+@cyan   : #2FB4C8;
+//:section
+
+/*
+The darken/lighten is not giving accurate results for the toasters so specific vars for them below.
+
+- Red background: #c23848 you can get this colour roughly from using the red variable and with HSL lower lightness by 20.
+- Blue background: #377ebd you can get this colour roughly from using the blue variable and with HSL lower lightness by 20.
+- Orange background: #ff9933
+- The text colour on all of these, could they please be #E2E2E2, except from warning which remains with black text.
+
+*/
+
+@redAlert    : #c23848;
+@greenAlert  : #c23848; /*is not being used anywhere; the same as @redAlert*/
+@blueAlert   : #377ebd;
+@orangeAlert : #ff9933;
+
+
+
+*::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+*::-webkit-scrollbar-corner{
+    background: @black;
+}
+*::-webkit-scrollbar-thumb {
+    background-color: @grey04;
+    border-radius: 50px;
+}
+*::-webkit-scrollbar-thumb:hover {
+    background-color: @grey01;
+}
+*::-webkit-scrollbar-thumb:active {
+    background-color: @orange;
+}
+*::-webkit-scrollbar-track {
+    background-color: @grey07;
+}

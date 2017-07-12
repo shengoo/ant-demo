@@ -7,13 +7,14 @@ import {DatePicker} from 'antd';
 // import '../../libs/EikonWebUI-less/webui/main.less';
 import 'antd/dist/antd.less';
 import '../less/ant-override.less';
+import '../less/scrollbar.less';
 import '../less/style.less';
 
 
 import {TopMenu, TreeMenu, MainContent} from './components';
 
 import menus from './menu';
-console.log(menus)
+
 
 class App extends Component {
 
