@@ -2,25 +2,37 @@ import React, {Component} from 'react';
 
 import {Tabs, Button, DatePicker} from 'antd';
 const TabPane = Tabs.TabPane;
-import {ButtonDemo1,PaginationDemo,FormDemo,UploadDemo,DatepickerDemo,CollapseDemo,
+import {
+    ButtonDemo1, PaginationDemo, FormDemo, UploadDemo, DatepickerDemo, CollapseDemo,
     TableDemo,
-    Feedbacks} from '../components';
+    Feedbacks,
+    ContentBlock,
+    Home,
+    EchartDemo,
+    OHCLDemo
+} from '../components';
 
 class MainContent extends Component {
     constructor(props) {
-        super(props);
+        super(props);console.log(props)
         this.newTabIndex = 0;
         const panes = [
             {title: 'ButtonDemo', content: <ButtonDemo1/>, key: '1'},
-            {title: 'FormDemo', content: <FormDemo/>, key: '2'},
+            {title: 'FormDemo', content: <FormDemo/>, key: 'FormDemo'},
             {title: 'PaginationDemo', content: <PaginationDemo/>, key: '3'},
             {title: 'DatepickerDemo & Calendar', content: <DatepickerDemo/>, key: 'DatePicker'},
             {title: 'Collapse & Popover', content: <CollapseDemo/>, key: 'CollapseDemo'},
             {title: 'TableDemo', content: <TableDemo/>, key: 'TableDemo'},
             {title: 'Feedbacks', content: <Feedbacks/>, key: 'Feedbacks'},
+            {title: 'EchartDemo', content: <EchartDemo/>, key: 'EchartDemo'},
+            {title: 'OHCLDemo', content: <OHCLDemo/>, key: 'OHCLDemo'},
         ];
+        const DefaultTab = props.home || Home;
+        // const panes = [
+        //     {title:DefaultTab.name,content:<DefaultTab></DefaultTab>,key:DefaultTab.name}
+        // ];
         this.state = {
-            activeKey: panes[0].key,
+            activeKey: 'EchartDemo',//panes[0].key,
             panes,
         };
     }
@@ -55,12 +67,13 @@ class MainContent extends Component {
     render() {
         return (
             <Tabs
+                // hideAdd={true}
                 onChange={this.onChange}
                 activeKey={this.state.activeKey}
                 type="editable-card"
                 onEdit={this.onEdit}
             >
-                {this.state.panes.map(pane => <TabPane tab={pane.title} key={pane.key}>{pane.content}</TabPane>)}
+                {this.state.panes.map(pane => <TabPane tab={pane.title} key={pane.key}><ContentBlock title={pane.title}>{pane.content}</ContentBlock></TabPane>)}
             </Tabs>
         );
     }

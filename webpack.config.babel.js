@@ -84,7 +84,7 @@ module.exports = function() {
                 ],
                 loader: 'file-loader',
                 options: {
-                    name: 'assets/[name].[hash:8].[ext]',
+                    name: 'assets/[name].[ext]',
                 },
             },
             // "url" loader works like "file" loader except that it embeds assets
@@ -200,7 +200,7 @@ module.exports = function() {
 
     config.devServer = {
         port: 3300,
-        contentBase: path.join(__dirname, 'src'),
+        contentBase: path.join(__dirname, ''),
         open: true,
         openPage: '',
         historyApiFallback: true,

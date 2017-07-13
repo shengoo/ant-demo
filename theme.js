@@ -1,7 +1,8 @@
 export default (function () {
     const theme = {
+        'icon-url' : '"/assets/iconfont"',
         'primary-color':'#ff9933',
-        'body-background':'#1A1A1C',//#0a0a0a
+        'body-background':'#0a0a0a',//#0a0a0a,1A1A1C
         'component-background':'#4a4a52',
         'heading-color':'#ffffff',
         'text-color':'#c2c2c2',

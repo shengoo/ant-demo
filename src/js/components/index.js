@@ -10,7 +10,25 @@ import DatepickerDemo from './DatepickerDemo';
 import CollapseDemo from './CollapseDemo';
 import TableDemo from './TableDemo';
 import Feedbacks from './Feedbacks';
+import ContentBlock from './ContentBlock';
 
-export {TopMenu, TreeMenu, MainContent, Home, ButtonDemo1, PaginationDemo, FormDemo,UploadDemo,DatepickerDemo,CollapseDemo,
+import EchartDemo from './charts/EchartDemo'
+import OHCLDemo from './charts/OHCLDemo'
+
+export {
+    TopMenu,
+    TreeMenu,
+    MainContent,
+    Home,
+    ButtonDemo1,
+    PaginationDemo,
+    FormDemo,
+    UploadDemo,
+    DatepickerDemo,
+    CollapseDemo,
     TableDemo,
-    Feedbacks};
+    Feedbacks,
+    ContentBlock,
+    EchartDemo,
+    OHCLDemo
+};
