@@ -12,8 +12,7 @@ import TableDemo from './TableDemo';
 import Feedbacks from './Feedbacks';
 import ContentBlock from './ContentBlock';
 
-import EchartDemo from './charts/EchartDemo'
-import OHCLDemo from './charts/OHCLDemo'
+import EchartDemo from './charts/EchartDemo';
 
 export {
     TopMenu,
@@ -30,5 +29,4 @@ export {
     Feedbacks,
     ContentBlock,
     EchartDemo,
-    OHCLDemo
 };

@@ -9,7 +9,6 @@ import {
     ContentBlock,
     Home,
     EchartDemo,
-    OHCLDemo
 } from '../components';
 
 class MainContent extends Component {
@@ -25,7 +24,6 @@ class MainContent extends Component {
             {title: 'TableDemo', content: <TableDemo/>, key: 'TableDemo'},
             {title: 'Feedbacks', content: <Feedbacks/>, key: 'Feedbacks'},
             {title: 'EchartDemo', content: <EchartDemo/>, key: 'EchartDemo'},
-            {title: 'OHCLDemo', content: <OHCLDemo/>, key: 'OHCLDemo'},
         ];
         const DefaultTab = props.home || Home;
         // const panes = [
