@@ -13,6 +13,7 @@ import Feedbacks from './Feedbacks';
 import ContentBlock from './ContentBlock';
 
 import EchartDemo from './charts/EchartDemo';
+import HighchartDemo from './charts/HighchartDemo';
 
 export {
     TopMenu,
@@ -29,4 +30,5 @@ export {
     Feedbacks,
     ContentBlock,
     EchartDemo,
+    HighchartDemo
 };

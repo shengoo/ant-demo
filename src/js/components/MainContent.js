@@ -9,6 +9,7 @@ import {
     ContentBlock,
     Home,
     EchartDemo,
+    HighchartDemo,
 } from '../components';
 
 class MainContent extends Component {
@@ -24,13 +25,14 @@ class MainContent extends Component {
             {title: 'TableDemo', content: <TableDemo/>, key: 'TableDemo'},
             {title: 'Feedbacks', content: <Feedbacks/>, key: 'Feedbacks'},
             {title: 'EchartDemo', content: <EchartDemo/>, key: 'EchartDemo'},
+            {title: 'HighchartDemo', content: <HighchartDemo/>, key: 'HighchartDemo'},
         ];
         const DefaultTab = props.home || Home;
         // const panes = [
         //     {title:DefaultTab.name,content:<DefaultTab></DefaultTab>,key:DefaultTab.name}
         // ];
         this.state = {
-            activeKey: 'EchartDemo',//panes[0].key,
+            activeKey: 'HighchartDemo',//panes[0].key,
             panes,
         };
     }
