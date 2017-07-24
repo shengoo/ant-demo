@@ -61,6 +61,13 @@ module.exports = function() {
                     path.resolve(__dirname, 'src')
                 ]
             },
+            // {
+            //     test: /\.html$/, // handles html files. <link rel="import" href="path.html"> and import "path.html";
+            //     loader: "wc-loader",
+            //     include: [
+            //         path.resolve(__dirname, 'bower_components')
+            //     ]
+            // },
 
             // The "file" loader handles all assets unless explicitly excluded.
             // The `exclude` list *must* be updated with every change to loader extensions.

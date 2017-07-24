@@ -1,3 +1,5 @@
+import Banner from './Banner';
+import AutoSuggest from './AutoSuggest';
 import TopMenu from './TopMenu';
 import TreeMenu from './TreeMenu';
 import MainContent from './MainContent';
@@ -16,6 +18,8 @@ import EchartDemo from './charts/EchartDemo';
 import HighchartDemo from './charts/HighchartDemo';
 
 export {
+    AutoSuggest,
+    Banner,
     TopMenu,
     TreeMenu,
     MainContent,
