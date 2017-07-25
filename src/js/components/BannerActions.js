@@ -3,6 +3,7 @@ import {Icon} from 'antd';
 
 import {LocaleSwitch} from './common';
 import Login from './Login'
+import LoginStatus from './LoginStatus'
 
 
 class BannerActions extends React.Component {
@@ -10,6 +11,7 @@ class BannerActions extends React.Component {
         return (
             <div className="page-banner-actions">
                 {/*<LocaleSwitch/>*/}
+                <LoginStatus/>
                 <Login/>
                 <div className="action-panel">
                     <Icon type="bars"/>

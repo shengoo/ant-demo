@@ -10,3 +10,9 @@ export function login(username, password) {
         password
     }
 }
+
+export function logout() {
+    return{
+        type:LOGOUT
+    }
+}

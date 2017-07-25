@@ -7,7 +7,7 @@ import enUS from 'antd/lib/locale-provider/en_US';
 
 
 import {createStore, applyMiddleware,compose} from 'redux';
-import {Provider} from 'react-redux';
+import {Provider,connect} from 'react-redux';
 import reducers from './reducers';
 
 import '../../libs/fonts/iconfont/iconfont.eot';
@@ -30,6 +30,11 @@ import menus from './menu';
 
 
 class App extends Component {
+
+    constructor(props){
+        super(props)
+        console.log(this)
+    }
 
     addTab() {
 
@@ -56,16 +61,18 @@ class App extends Component {
     }
 }
 
+
 const store = createStore(reducers,
+    {lang:'en_US'},
     compose(
         DevTools.instrument()
     ));
-
+console.log(store)
 ReactDOM.render(
     <Provider store={store}>
-        <LocaleProvider locale={enUS}>
             <App/>
-        </LocaleProvider>
     </Provider>,
     document.getElementById('root')
 );
+{/*<LocaleProvider locale={enUS}>*/}
+{/*</LocaleProvider>*/}

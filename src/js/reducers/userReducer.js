@@ -9,20 +9,16 @@ const initialState = {
 };
 
 const user = (state = initialState, action) =>{
-    console.log(action)
     switch (action.type){
         case LOGIN:
             state.loggedIn = true;
             state.username = action.username;
-            console.log(state)
             return state;
         case LOGOUT:
             state.loggedIn = false;
             state.username = '';
-            console.log(state)
             return state;
         default:
-            console.log(state)
             return state
     }
 };
