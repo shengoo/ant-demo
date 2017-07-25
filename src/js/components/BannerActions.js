@@ -8,7 +8,7 @@ class BannerActions extends React.Component {
     render() {
         return (
             <div className="page-banner-actions">
-                <LocaleSwitch/>
+                {/*<LocaleSwitch/>*/}
                 <div className="action-panel">
                     <Icon type="bars"/>
                     <Icon type="user"/>
