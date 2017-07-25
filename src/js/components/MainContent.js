@@ -14,7 +14,7 @@ import {
 
 class MainContent extends Component {
     constructor(props) {
-        super(props);console.log(props)
+        super(props);
         this.newTabIndex = 0;
         const panes = [
             {title: 'ButtonDemo', content: <ButtonDemo1/>, key: '1'},

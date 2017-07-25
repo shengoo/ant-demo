@@ -6,7 +6,7 @@ import enUS from 'antd/lib/locale-provider/en_US';
 // import '../../node_modules/antd/lib/date-picker/style/index.less'
 
 
-import {createStore, applyMiddleware} from 'redux';
+import {createStore, applyMiddleware,compose} from 'redux';
 import {Provider} from 'react-redux';
 import reducers from './reducers';
 
@@ -24,6 +24,7 @@ import '../less/style.less';
 
 
 import {Banner, TopMenu, TreeMenu, MainContent, Home} from './components';
+import DevTools from './components/DevTools'
 
 import menus from './menu';
 
@@ -49,12 +50,16 @@ class App extends Component {
                         <MainContent items={menus}/>
                     </div>
                 </div>
+                <DevTools/>
             </div>
         );
     }
 }
 
-const store = createStore(reducers);
+const store = createStore(reducers,
+    compose(
+        DevTools.instrument()
+    ));
 
 ReactDOM.render(
     <Provider store={store}>
