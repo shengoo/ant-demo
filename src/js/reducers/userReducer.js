@@ -11,13 +11,17 @@ const initialState = {
 const user = (state = initialState, action) =>{
     switch (action.type){
         case LOGIN:
-            state.loggedIn = true;
-            state.username = action.username;
-            return state;
+            return {
+                ...state,
+                loggedIn: true,
+                username :action.username
+            };
         case LOGOUT:
-            state.loggedIn = false;
-            state.username = '';
-            return state;
+            return {
+                ...state,
+                loggedIn: false,
+                username :''
+            };;
         default:
             return state
     }
